@@ -14,7 +14,6 @@ change that later.
 you may need to adjust the script.
 2. Install this mobile app on your phone
 3. Connect to your board's  WiFi. By default SSID is `NodeMCU` and password is `87654321*`
-4. Enjoy using your LED lamp
 
 ## Project Structure
 
