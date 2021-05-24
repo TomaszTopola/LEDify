@@ -21,34 +21,34 @@ class LedStatus {
     _ledValues["B"] = blue;
     _ledValues["START-INDEX"] = startPin;
     _ledValues["END-INDEX"] = endPin;
-    calculateMaxVal();
+    _calculateMaxVal();
   }
-  LedStatus.fromMap(Map<String, dynamic> map,{@required this.bit,}){
+  LedStatus.fromMap(Map<String, dynamic> map,{this.bit = 8,}){
     assert (map["R"] is int
         && map["G"] is int
         && map["B"] is int
         && map["R"] is int
         && map["R"] is int,
     'R, G, B, START_PIN and END_PIN params must be type of int');
-    calculateMaxVal();
+    _calculateMaxVal();
   }
 
-  LedStatus.blank({@required this.bit}){
+  LedStatus.blank({this.bit = 8}){
     _ledValues["R"] = 0;
     _ledValues["G"] = 0;
     _ledValues["B"] = 0;
     _ledValues["START-INDEX"] = 0;
     _ledValues["END-INDEX"] = 0;
-    calculateMaxVal();
+    _calculateMaxVal();
   }
 
-  void calculateMaxVal(){
+  void _calculateMaxVal(){
     maxVal = pow(2, bit); //returns max color value + 1
     // (for 8-bit it's 256, 0 is also a value so colors are in range 0-255)
   }
 
-  void setColor({ int value, String key}){
-    assert(value >= 0 && value < maxVal,
+  void setValue({ int value, String key}){
+    assert(value >= 0 && value < maxVal, //since maxVal = 256, input is 255 max
     "value must be within range from 0 to ${maxVal - 1}");
     _ledValues[key] = value;
   }

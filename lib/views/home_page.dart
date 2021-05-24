@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
                       try{
                         LedStatus blank = LedStatus.blank(bit: 8);
                         blank.setRange(start: 0, count: 16);
-                        Response res = await Lamp.setState(data: blank.getValues());
+                        Response res = await Lamp.fill(data: blank.getValues());
                         print('Responded with status code ${res.statusCode}');
                       }catch(e){
                         print(e);
@@ -44,7 +44,7 @@ class HomePage extends StatelessWidget {
                     onPressed: () async {
                       try{
                         print('Sending request with body: ${_ledStatus.getValues()}');
-                        Response res = await Lamp.setState(data: _ledStatus.getValues());
+                        Response res = await Lamp.fill(data: _ledStatus.getValues());
                         print('Responded with status code ${res.statusCode}');
                       }catch(e){
                         print(e);

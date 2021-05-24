@@ -39,7 +39,7 @@ class _BitSliderState extends State<BitSlider> {
       label: widget.ledStatus.getValue(widget.colorKey).toString(),
       onChanged: (double value) {
         setState(() {
-          widget.ledStatus.setColor(
+          widget.ledStatus.setValue(
               value: value.round().toInt(),
               key: widget.colorKey);
         });
