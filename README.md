@@ -45,7 +45,7 @@ to the board. There are available several methods:
 - `static Future<Response> fill({Map<String, dynamic> data}) async` To use it you'll usually provide
 LedRange.getValues(), which is body of HTTP POST request.
 
-# license
+## license
 
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
 
